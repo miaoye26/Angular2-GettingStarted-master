@@ -1,11 +1,13 @@
+//import
 import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core'
 
+//decorator
 @Component({
     selector: 'ai-star',
     templateUrl: 'app/shared/star.component.html',
     styleUrls: ['app/shared/star.component.css']
 })
-
+//class
 export class StarComponent {
     @Input() rating: number;
     starWidth : number;
