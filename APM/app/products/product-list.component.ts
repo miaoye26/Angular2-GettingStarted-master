@@ -4,7 +4,7 @@ import {IProduct} from './product'
 @Component({
     //directive: can be used in html tags, replace the template content
     selector: 'pm-products',
-    // to use reletive path instead of abslute path
+    // to use component-reletive path instead of abslute path
     moduleId: module.id,
     templateUrl: 'product-list.component.html',
     styleUrls: ['product-list.component.css']
@@ -44,5 +44,8 @@ export class ProductListComponent implements OnInit {
  }
  ngOnInit(): void {
      console.log('In OnInit');
+ }
+ onRatingClicked(message: string): void{
+     this.pageTitle = 'Product List: ' + message;
  }
 }
