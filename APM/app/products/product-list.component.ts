@@ -19,17 +19,22 @@ export class ProductListComponent implements OnInit {
  showImage: boolean = false;
  listFilter: string = '';
  products: IProduct[] = [];
+ errorMessage: string;
 
+//initicated a private variable _productService and assign to ProductService
  constructor (private _productService: ProductService) {
 
  }
- 
+
  toggleImage(): void{
      this.showImage = ! this.showImage;
  }
  ngOnInit(): void {
      console.log('In OnInit');
-     this.products = this._productService.getProducts();
+     //subscribe the return of getProducts to products, and set this.products value to the return data
+     this._productService.getProducts()
+        .subscribe(products => this.products = products,
+                error => this.errorMessage = <any>error);
  }
  onRatingClicked(message: string): void{
      this.pageTitle = 'Product List: ' + message;
